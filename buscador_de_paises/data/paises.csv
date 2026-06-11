@@ -1,5 +1,228 @@
 nombre,poblacion,superficie,continente
-Argentina,45376763,2780400,América
-Japón,125800000,377975,Asia
-Brasil,213993437,8515767,América
-Alemania,83149300,357022,Europa
+Afghanistan ,31056997,647500,ASIA (EX. NEAR EAST)         
+Albania ,3581655,28748,EASTERN EUROPE                     
+Algeria ,32930091,2381740,NORTHERN AFRICA                    
+American Samoa ,57794,199,OCEANIA                            
+Andorra ,71201,468,WESTERN EUROPE                     
+Angola ,12127071,1246700,SUB-SAHARAN AFRICA                 
+Anguilla ,13477,102,LATIN AMER. & CARIB    
+Antigua & Barbuda ,69108,443,LATIN AMER. & CARIB    
+Argentina ,39921833,2766890,LATIN AMER. & CARIB    
+Armenia ,2976372,29800,C.W. OF IND. STATES 
+Aruba ,71891,193,LATIN AMER. & CARIB    
+Australia ,20264082,7686850,OCEANIA                            
+Austria ,8192880,83870,WESTERN EUROPE                     
+Azerbaijan ,7961619,86600,C.W. OF IND. STATES 
+"Bahamas, The ",303770,13940,LATIN AMER. & CARIB    
+Bahrain ,698585,665,NEAR EAST                          
+Bangladesh ,147365352,144000,ASIA (EX. NEAR EAST)         
+Barbados ,279912,431,LATIN AMER. & CARIB    
+Belarus ,10293011,207600,C.W. OF IND. STATES 
+Belgium ,10379067,30528,WESTERN EUROPE                     
+Belize ,287730,22966,LATIN AMER. & CARIB    
+Benin ,7862944,112620,SUB-SAHARAN AFRICA                 
+Bermuda ,65773,53,NORTHERN AMERICA                   
+Bhutan ,2279723,47000,ASIA (EX. NEAR EAST)         
+Bolivia ,8989046,1098580,LATIN AMER. & CARIB    
+Bosnia & Herzegovina ,4498976,51129,EASTERN EUROPE                     
+Botswana ,1639833,600370,SUB-SAHARAN AFRICA                 
+Brazil ,188078227,8511965,LATIN AMER. & CARIB    
+British Virgin Is. ,23098,153,LATIN AMER. & CARIB    
+Brunei ,379444,5770,ASIA (EX. NEAR EAST)         
+Bulgaria ,7385367,110910,EASTERN EUROPE                     
+Burkina Faso ,13902972,274200,SUB-SAHARAN AFRICA                 
+Burma ,47382633,678500,ASIA (EX. NEAR EAST)         
+Burundi ,8090068,27830,SUB-SAHARAN AFRICA                 
+Cambodia ,13881427,181040,ASIA (EX. NEAR EAST)         
+Cameroon ,17340702,475440,SUB-SAHARAN AFRICA                 
+Canada ,33098932,9984670,NORTHERN AMERICA                   
+Cape Verde ,420979,4033,SUB-SAHARAN AFRICA                 
+Cayman Islands ,45436,262,LATIN AMER. & CARIB    
+Central African Rep. ,4303356,622984,SUB-SAHARAN AFRICA                 
+Chad ,9944201,1284000,SUB-SAHARAN AFRICA                 
+Chile ,16134219,756950,LATIN AMER. & CARIB    
+China ,1313973713,9596960,ASIA (EX. NEAR EAST)         
+Colombia ,43593035,1138910,LATIN AMER. & CARIB    
+Comoros ,690948,2170,SUB-SAHARAN AFRICA                 
+"Congo, Dem. Rep. ",62660551,2345410,SUB-SAHARAN AFRICA                 
+"Congo, Repub. of the ",3702314,342000,SUB-SAHARAN AFRICA                 
+Cook Islands ,21388,240,OCEANIA                            
+Costa Rica ,4075261,51100,LATIN AMER. & CARIB    
+Cote d'Ivoire ,17654843,322460,SUB-SAHARAN AFRICA                 
+Croatia ,4494749,56542,EASTERN EUROPE                     
+Cuba ,11382820,110860,LATIN AMER. & CARIB    
+Cyprus ,784301,9250,NEAR EAST                          
+Czech Republic ,10235455,78866,EASTERN EUROPE                     
+Denmark ,5450661,43094,WESTERN EUROPE                     
+Djibouti ,486530,23000,SUB-SAHARAN AFRICA                 
+Dominica ,68910,754,LATIN AMER. & CARIB    
+Dominican Republic ,9183984,48730,LATIN AMER. & CARIB    
+East Timor ,1062777,15007,ASIA (EX. NEAR EAST)         
+Ecuador ,13547510,283560,LATIN AMER. & CARIB    
+Egypt ,78887007,1001450,NORTHERN AFRICA                    
+El Salvador ,6822378,21040,LATIN AMER. & CARIB    
+Equatorial Guinea ,540109,28051,SUB-SAHARAN AFRICA                 
+Eritrea ,4786994,121320,SUB-SAHARAN AFRICA                 
+Estonia ,1324333,45226,BALTICS                            
+Ethiopia ,74777981,1127127,SUB-SAHARAN AFRICA                 
+Faroe Islands ,47246,1399,WESTERN EUROPE                     
+Fiji ,905949,18270,OCEANIA                            
+Finland ,5231372,338145,WESTERN EUROPE                     
+France ,60876136,547030,WESTERN EUROPE                     
+French Guiana ,199509,91000,LATIN AMER. & CARIB    
+French Polynesia ,274578,4167,OCEANIA                            
+Gabon ,1424906,267667,SUB-SAHARAN AFRICA                 
+"Gambia, The ",1641564,11300,SUB-SAHARAN AFRICA                 
+Gaza Strip ,1428757,360,NEAR EAST                          
+Georgia ,4661473,69700,C.W. OF IND. STATES 
+Germany ,82422299,357021,WESTERN EUROPE                     
+Ghana ,22409572,239460,SUB-SAHARAN AFRICA                 
+Gibraltar ,27928,7,WESTERN EUROPE                     
+Greece ,10688058,131940,WESTERN EUROPE                     
+Greenland ,56361,2166086,NORTHERN AMERICA                   
+Grenada ,89703,344,LATIN AMER. & CARIB    
+Guadeloupe ,452776,1780,LATIN AMER. & CARIB    
+Guam ,171019,541,OCEANIA                            
+Guatemala ,12293545,108890,LATIN AMER. & CARIB    
+Guernsey ,65409,78,WESTERN EUROPE                     
+Guinea ,9690222,245857,SUB-SAHARAN AFRICA                 
+Guinea-Bissau ,1442029,36120,SUB-SAHARAN AFRICA                 
+Guyana ,767245,214970,LATIN AMER. & CARIB    
+Haiti ,8308504,27750,LATIN AMER. & CARIB    
+Honduras ,7326496,112090,LATIN AMER. & CARIB    
+Hong Kong ,6940432,1092,ASIA (EX. NEAR EAST)         
+Hungary ,9981334,93030,EASTERN EUROPE                     
+Iceland ,299388,103000,WESTERN EUROPE                     
+India ,1095351995,3287590,ASIA (EX. NEAR EAST)         
+Indonesia ,245452739,1919440,ASIA (EX. NEAR EAST)         
+Iran ,68688433,1648000,ASIA (EX. NEAR EAST)         
+Iraq ,26783383,437072,NEAR EAST                          
+Ireland ,4062235,70280,WESTERN EUROPE                     
+Isle of Man ,75441,572,WESTERN EUROPE                     
+Israel ,6352117,20770,NEAR EAST                          
+Italy ,58133509,301230,WESTERN EUROPE                     
+Jamaica ,2758124,10991,LATIN AMER. & CARIB    
+Japan ,127463611,377835,ASIA (EX. NEAR EAST)         
+Jersey ,91084,116,WESTERN EUROPE                     
+Jordan ,5906760,92300,NEAR EAST                          
+Kazakhstan ,15233244,2717300,C.W. OF IND. STATES 
+Kenya ,34707817,582650,SUB-SAHARAN AFRICA                 
+Kiribati ,105432,811,OCEANIA                            
+"Korea, North ",23113019,120540,ASIA (EX. NEAR EAST)         
+"Korea, South ",48846823,98480,ASIA (EX. NEAR EAST)         
+Kuwait ,2418393,17820,NEAR EAST                          
+Kyrgyzstan ,5213898,198500,C.W. OF IND. STATES 
+Laos ,6368481,236800,ASIA (EX. NEAR EAST)         
+Latvia ,2274735,64589,BALTICS                            
+Lebanon ,3874050,10400,NEAR EAST                          
+Lesotho ,2022331,30355,SUB-SAHARAN AFRICA                 
+Liberia ,3042004,111370,SUB-SAHARAN AFRICA                 
+Libya ,5900754,1759540,NORTHERN AFRICA                    
+Liechtenstein ,33987,160,WESTERN EUROPE                     
+Lithuania ,3585906,65200,BALTICS                            
+Luxembourg ,474413,2586,WESTERN EUROPE                     
+Macau ,453125,28,ASIA (EX. NEAR EAST)         
+Macedonia ,2050554,25333,EASTERN EUROPE                     
+Madagascar ,18595469,587040,SUB-SAHARAN AFRICA                 
+Malawi ,13013926,118480,SUB-SAHARAN AFRICA                 
+Malaysia ,24385858,329750,ASIA (EX. NEAR EAST)         
+Maldives ,359008,300,ASIA (EX. NEAR EAST)         
+Mali ,11716829,1240000,SUB-SAHARAN AFRICA                 
+Malta ,400214,316,WESTERN EUROPE                     
+Marshall Islands ,60422,11854,OCEANIA                            
+Martinique ,436131,1100,LATIN AMER. & CARIB    
+Mauritania ,3177388,1030700,SUB-SAHARAN AFRICA                 
+Mauritius ,1240827,2040,SUB-SAHARAN AFRICA                 
+Mayotte ,201234,374,SUB-SAHARAN AFRICA                 
+Mexico ,107449525,1972550,LATIN AMER. & CARIB    
+"Micronesia, Fed. St. ",108004,702,OCEANIA                            
+Moldova ,4466706,33843,C.W. OF IND. STATES 
+Monaco ,32543,2,WESTERN EUROPE                     
+Mongolia ,2832224,1564116,ASIA (EX. NEAR EAST)         
+Montserrat ,9439,102,LATIN AMER. & CARIB    
+Morocco ,33241259,446550,NORTHERN AFRICA                    
+Mozambique ,19686505,801590,SUB-SAHARAN AFRICA                 
+Namibia ,2044147,825418,SUB-SAHARAN AFRICA                 
+Nauru ,13287,21,OCEANIA                            
+Nepal ,28287147,147181,ASIA (EX. NEAR EAST)         
+Netherlands ,16491461,41526,WESTERN EUROPE                     
+Netherlands Antilles ,221736,960,LATIN AMER. & CARIB    
+New Caledonia ,219246,19060,OCEANIA                            
+New Zealand ,4076140,268680,OCEANIA                            
+Nicaragua ,5570129,129494,LATIN AMER. & CARIB    
+Niger ,12525094,1267000,SUB-SAHARAN AFRICA                 
+Nigeria ,131859731,923768,SUB-SAHARAN AFRICA                 
+N. Mariana Islands ,82459,477,OCEANIA                            
+Norway ,4610820,323802,WESTERN EUROPE                     
+Oman ,3102229,212460,NEAR EAST                          
+Pakistan ,165803560,803940,ASIA (EX. NEAR EAST)         
+Palau ,20579,458,OCEANIA                            
+Panama ,3191319,78200,LATIN AMER. & CARIB    
+Papua New Guinea ,5670544,462840,OCEANIA                            
+Paraguay ,6506464,406750,LATIN AMER. & CARIB    
+Peru ,28302603,1285220,LATIN AMER. & CARIB    
+Philippines ,89468677,300000,ASIA (EX. NEAR EAST)         
+Poland ,38536869,312685,EASTERN EUROPE                     
+Portugal ,10605870,92391,WESTERN EUROPE                     
+Puerto Rico ,3927188,13790,LATIN AMER. & CARIB    
+Qatar ,885359,11437,NEAR EAST                          
+Reunion ,787584,2517,SUB-SAHARAN AFRICA                 
+Romania ,22303552,237500,EASTERN EUROPE                     
+Russia ,142893540,17075200,C.W. OF IND. STATES 
+Rwanda ,8648248,26338,SUB-SAHARAN AFRICA                 
+Saint Helena ,7502,413,SUB-SAHARAN AFRICA                 
+Saint Kitts & Nevis ,39129,261,LATIN AMER. & CARIB    
+Saint Lucia ,168458,616,LATIN AMER. & CARIB    
+St Pierre & Miquelon ,7026,242,NORTHERN AMERICA                   
+Saint Vincent and the Grenadines ,117848,389,LATIN AMER. & CARIB    
+Samoa ,176908,2944,OCEANIA                            
+San Marino ,29251,61,WESTERN EUROPE                     
+Sao Tome & Principe ,193413,1001,SUB-SAHARAN AFRICA                 
+Saudi Arabia ,27019731,1960582,NEAR EAST                          
+Senegal ,11987121,196190,SUB-SAHARAN AFRICA                 
+Serbia ,9396411,88361,EASTERN EUROPE                     
+Seychelles ,81541,455,SUB-SAHARAN AFRICA                 
+Sierra Leone ,6005250,71740,SUB-SAHARAN AFRICA                 
+Singapore ,4492150,693,ASIA (EX. NEAR EAST)         
+Slovakia ,5439448,48845,EASTERN EUROPE                     
+Slovenia ,2010347,20273,EASTERN EUROPE                     
+Solomon Islands ,552438,28450,OCEANIA                            
+Somalia ,8863338,637657,SUB-SAHARAN AFRICA                 
+South Africa ,44187637,1219912,SUB-SAHARAN AFRICA                 
+Spain ,40397842,504782,WESTERN EUROPE                     
+Sri Lanka ,20222240,65610,ASIA (EX. NEAR EAST)         
+Sudan ,41236378,2505810,SUB-SAHARAN AFRICA                 
+Suriname ,439117,163270,LATIN AMER. & CARIB    
+Swaziland ,1136334,17363,SUB-SAHARAN AFRICA                 
+Sweden ,9016596,449964,WESTERN EUROPE                     
+Switzerland ,7523934,41290,WESTERN EUROPE                     
+Syria ,18881361,185180,NEAR EAST                          
+Taiwan ,23036087,35980,ASIA (EX. NEAR EAST)         
+Tajikistan ,7320815,143100,C.W. OF IND. STATES 
+Tanzania ,37445392,945087,SUB-SAHARAN AFRICA                 
+Thailand ,64631595,514000,ASIA (EX. NEAR EAST)         
+Togo ,5548702,56785,SUB-SAHARAN AFRICA                 
+Tonga ,114689,748,OCEANIA                            
+Trinidad & Tobago ,1065842,5128,LATIN AMER. & CARIB    
+Tunisia ,10175014,163610,NORTHERN AFRICA                    
+Turkey ,70413958,780580,NEAR EAST                          
+Turkmenistan ,5042920,488100,C.W. OF IND. STATES 
+Turks & Caicos Is ,21152,430,LATIN AMER. & CARIB    
+Tuvalu ,11810,26,OCEANIA                            
+Uganda ,28195754,236040,SUB-SAHARAN AFRICA                 
+Ukraine ,46710816,603700,C.W. OF IND. STATES 
+United Arab Emirates ,2602713,82880,NEAR EAST                          
+United Kingdom ,60609153,244820,WESTERN EUROPE                     
+United States ,298444215,9631420,NORTHERN AMERICA                   
+Uruguay ,3431932,176220,LATIN AMER. & CARIB    
+Uzbekistan ,27307134,447400,C.W. OF IND. STATES 
+Vanuatu ,208869,12200,OCEANIA                            
+Venezuela ,25730435,912050,LATIN AMER. & CARIB    
+Vietnam ,84402966,329560,ASIA (EX. NEAR EAST)         
+Virgin Islands ,108605,1910,LATIN AMER. & CARIB    
+Wallis and Futuna ,16025,274,OCEANIA                            
+West Bank ,2460492,5860,NEAR EAST                          
+Western Sahara ,273008,266000,NORTHERN AFRICA                    
+Yemen ,21456188,527970,NEAR EAST                          
+Zambia ,11502010,752614,SUB-SAHARAN AFRICA                 
+Zimbabwe ,12236805,390580,SUB-SAHARAN AFRICA
