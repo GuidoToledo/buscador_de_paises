@@ -58,12 +58,15 @@ El sistema permite realizar consultas, búsquedas, filtros, ordenamientos y esta
 ## Estructura del Proyecto
 
 buscador_de_paises/
-                   data/ 
-                       paises.csv
-                   modulos/
-                       funciones.py
-                       main.py
-                   README.md
+│
+├── data/
+│   └── paises.csv
+│
+├── modulos/
+│   └── funciones.py
+│
+├── main.py
+└── README.md
                     
 
 ---
