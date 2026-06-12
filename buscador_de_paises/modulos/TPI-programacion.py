@@ -26,17 +26,25 @@ def agregar_pais(paises):
                 continente = input (f"Ingrese a que continente pertenece {nombre}: ")
                 pais_agregado = (f"{nombre},{poblacion},{superficie},{continente}")
                 print(pais_agregado)
-                try:
-                    confirmar = input("Guardar los cambios? si/no: ")
+                while True:
+                    try:
+                        confirmar = input("Guardar los cambios? si/no: ").lower().strip()
 
-                    if confirmar == "" or not confirmar.isalpha():
-                        raise ValueError("Ingrese solo si ó no")
-                
-                except ValueError as e:
-                    print(e)
+                        if confirmar not in ("si", "no"):
+                            raise ValueError("Ingrese solo si o no")
 
+                        break
+
+                    except ValueError as e:
+                        print(e)
+                nuevo_pais = {
+                    "nombre": nombre,
+                    "poblacion": poblacion,
+                    "superficie": superficie,
+                    "continente": continente
+                }
                 if confirmar == "si":
-                    paises.append(pais_agregado)
+                    paises.append(nuevo_pais)
                     
             case 2:
                 break
