@@ -148,7 +148,7 @@ def actualizar_pais(paises):
         if not pais_encontrado:
             print("[ERROR]Pais no encontrado, ingrese un nombre valido")
             continue
-            
+
 
 def filtrar_paises(paises):
     #Opcion 4
@@ -239,11 +239,21 @@ def filtrar_paises(paises):
                     return
             case 4:
                 return
-        
+
+
 def ordenar_paises(paises):
     #Opcion 5
     while True:
-        #Para estos ordenamientos usar bubble sort o binary sort
+# Ejemplo de Bubble Sort por nombre
+#
+# for i in range(len(paises) - 1):
+#     for j in range(len(paises) - 1 - i):
+#
+#         if paises[j]["nombre"] > paises[j + 1]["nombre"]:
+#
+#             paises[j], paises[j + 1] = paises[j + 1], paises[j]
+#
+# use sorted() porque me resulto mas simple
         opcion = input("""Ingrese la opcion correspondiente: 
                 1 - Ordenar paises por nombre
                 2 - Ordenar paises por poblacion
@@ -252,13 +262,47 @@ def ordenar_paises(paises):
                 """)
         match int(opcion):
             case 1:
-                pass
+                ordenados = sorted(
+                    paises,
+                    key=lambda pais: pais["nombre"]
+                )
+                print("\nPrimeros 10 paises ordenados por nombre:\n")
+                for pais in ordenados[:10]:
+                    print(
+                        f"{pais['nombre']} | "
+                        f"Población: {pais['poblacion']} | "
+                        f"Superficie: {pais['superficie']} | "
+                        f"Continente: {pais['continente']}"
+                    )
             case 2:
-                pass
+                ordenados = sorted(
+                    paises,
+                    key=lambda pais: int(pais["poblacion"])
+                )
+                print("\nPrimeros 10 paises ordenados por población:\n")
+                for pais in ordenados[:10]:
+                    print(
+                        f"{pais['nombre']} | "
+                        f"Población: {pais['poblacion']} | "
+                        f"Superficie: {pais['superficie']} | "
+                        f"Continente: {pais['continente']}"
+                    )
             case 3:
-                pass
+                ordenados = sorted(
+                    paises,
+                    key=lambda pais: float(pais["superficie"])
+                )
+                print("\nPrimeros 10 paises ordenados por superficie:\n")
+                for pais in ordenados[:10]:
+                    print(
+                        f"{pais['nombre']} | "
+                        f"Población: {pais['poblacion']} | "
+                        f"Superficie: {pais['superficie']} | "
+                        f"Continente: {pais['continente']}"
+                    )
             case 4:
                 break
+
 
 def estadisticas(paises):
     #Paises con la menor y mayor poblacion
@@ -290,13 +334,21 @@ def estadisticas(paises):
     
     #Agregar cantidad de países por continente,ver como hago esto despues
 
+
 def guardar_cambios(paises):
-    #Esta es la funcion de la opcion del menu que guardara cambios.
-    pass 
+    with open("paises.csv", "w", encoding="utf-8") as archivo:
+
+        archivo.write("nombre,poblacion,superficie,continente\n")
+        for pais in paises:
+            archivo.write(
+                f"{pais['nombre']},{pais['poblacion']},{pais['superficie']},{pais['continente']}\n"
+            )
+    print("Cambios guardados correctamente.")
+
 
 def menu():
     paises = []
-    with open("../datos/paises.csv", "r") as archivo:
+    with open("paises.csv", "r") as archivo:
             lector = csv.DictReader(archivo)
     
             for i in lector:
@@ -347,6 +399,12 @@ def menu():
                 estadisticas(paises)
             #Agregar aca abajo uan nueva opcion para guardar datos.
             case 7:
+                confirmar = input("¿Desea guardar los cambios? (si/no): ")
+
+                if confirmar.lower() == "si":
+                    guardar_cambios(paises)
+
                 break
+
 
 menu()

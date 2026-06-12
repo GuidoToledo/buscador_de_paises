@@ -13,7 +13,6 @@ Aruba ,71891,193,LATIN AMER. & CARIB
 Australia ,20264082,7686850,OCEANIA                            
 Austria ,8192880,83870,WESTERN EUROPE                     
 Azerbaijan ,7961619,86600,C.W. OF IND. STATES 
-"Bahamas, The ",303770,13940,LATIN AMER. & CARIB    
 Bahrain ,698585,665,NEAR EAST                          
 Bangladesh ,147365352,144000,ASIA (EX. NEAR EAST)         
 Barbados ,279912,431,LATIN AMER. & CARIB    
@@ -43,9 +42,7 @@ Chad ,9944201,1284000,SUB-SAHARAN AFRICA
 Chile ,16134219,756950,LATIN AMER. & CARIB    
 China ,1313973713,9596960,ASIA (EX. NEAR EAST)         
 Colombia ,43593035,1138910,LATIN AMER. & CARIB    
-Comoros ,690948,2170,SUB-SAHARAN AFRICA                 
-"Congo, Dem. Rep. ",62660551,2345410,SUB-SAHARAN AFRICA                 
-"Congo, Repub. of the ",3702314,342000,SUB-SAHARAN AFRICA                 
+Comoros ,690948,2170,SUB-SAHARAN AFRICA
 Cook Islands ,21388,240,OCEANIA                            
 Costa Rica ,4075261,51100,LATIN AMER. & CARIB    
 Cote d'Ivoire ,17654843,322460,SUB-SAHARAN AFRICA                 
@@ -71,8 +68,7 @@ Finland ,5231372,338145,WESTERN EUROPE
 France ,60876136,547030,WESTERN EUROPE                     
 French Guiana ,199509,91000,LATIN AMER. & CARIB    
 French Polynesia ,274578,4167,OCEANIA                            
-Gabon ,1424906,267667,SUB-SAHARAN AFRICA                 
-"Gambia, The ",1641564,11300,SUB-SAHARAN AFRICA                 
+Gabon ,1424906,267667,SUB-SAHARAN AFRICA  
 Gaza Strip ,1428757,360,NEAR EAST                          
 Georgia ,4661473,69700,C.W. OF IND. STATES 
 Germany ,82422299,357021,WESTERN EUROPE                     
@@ -107,9 +103,7 @@ Jersey ,91084,116,WESTERN EUROPE
 Jordan ,5906760,92300,NEAR EAST                          
 Kazakhstan ,15233244,2717300,C.W. OF IND. STATES 
 Kenya ,34707817,582650,SUB-SAHARAN AFRICA                 
-Kiribati ,105432,811,OCEANIA                            
-"Korea, North ",23113019,120540,ASIA (EX. NEAR EAST)         
-"Korea, South ",48846823,98480,ASIA (EX. NEAR EAST)         
+Kiribati ,105432,811,OCEANIA             
 Kuwait ,2418393,17820,NEAR EAST                          
 Kyrgyzstan ,5213898,198500,C.W. OF IND. STATES 
 Laos ,6368481,236800,ASIA (EX. NEAR EAST)         
@@ -134,8 +128,7 @@ Martinique ,436131,1100,LATIN AMER. & CARIB
 Mauritania ,3177388,1030700,SUB-SAHARAN AFRICA                 
 Mauritius ,1240827,2040,SUB-SAHARAN AFRICA                 
 Mayotte ,201234,374,SUB-SAHARAN AFRICA                 
-Mexico ,107449525,1972550,LATIN AMER. & CARIB    
-"Micronesia, Fed. St. ",108004,702,OCEANIA                            
+Mexico ,107449525,1972550,LATIN AMER. & CARIB 
 Moldova ,4466706,33843,C.W. OF IND. STATES 
 Monaco ,32543,2,WESTERN EUROPE                     
 Mongolia ,2832224,1564116,ASIA (EX. NEAR EAST)         
