@@ -41,6 +41,19 @@ def validar_nombre(nombre):
     return True
 
 
+def buscar_paises_por_nombre(paises, nombre_buscado):
+# proposito: funcion para busquedas parciales
+    resultados = []
+
+    nombre_buscado = nombre_buscado.lower().strip()
+
+    for pais in paises:
+        if nombre_buscado in pais["nombre"].lower().strip():
+            resultados.append(pais)
+
+    return resultados
+
+
 def agregar_pais(paises):   # Opcion 1
 # Proposito: agregar un nuevo pais a la lista de paises.
     while True:
@@ -106,73 +119,107 @@ def agregar_pais(paises):   # Opcion 1
 
 def actualizar_pais(paises):# Opcion 2
 # Propocito: busca un pais por su nombre para actualizar poblacion o superficie
+
     while True:
         try:
-            nombre = input("Ingrese el nombre del pais para modificar su poblacion y/o superficie: ").strip().lower()
+            nombre = input("Ingrese el nombre del pais a buscar: ").strip().lower()
 
-            if not validar_nombre(nombre):
-                raise ValueError("Ingrese solo letras para el nombre del pais.")
-    
+            if not nombre:
+                raise ValueError("[ERROR] Ingrese un nombre valido.")
+
         except ValueError as e:
             print(e)
             continue
-        
-        pais_encontrado = False
-        for pais in paises:#primero busca el pais
-            if pais['nombre'].lower().strip() == nombre:
-                pais_encontrado = True
-                while True:
-                    try:#y despues se pregunta que dato se desea actializar
-                        opcion = input("""Ingese la opcion correspondiente:
-                                1 - Modificar poblacion
-                                2 - Modificar superficie
-                                3 - Volver al menu princiapal
-                                """)
-                        if not opcion.isdigit():
-                            raise ValueError("[ERROR] Ingrese solo numeros.")
 
-                        if int(opcion) < 1 or int(opcion) > 3:
-                            raise ValueError("[ERROR] Ingrese solo los numeros 1, 2 ó 3.") 
-                    except ValueError as e:
-                        print(e)
-                        continue
-                    
-                    match int(opcion):
-                        case 1: # Actualizar la poblacion del pais.
-                            while True:
-                                try: 
-                                    pais['poblacion'] = int(input(f"Ingrese la nueva poblacion de {pais['nombre']}: "))
-                                
-                                    if pais['poblacion'] <= 0:
-                                        raise ValueError("[ERROR] La poblacion debe ser mayor que cero.")
-                                
-                                except ValueError as e:
-                                    print(e)
-                                    continue
+        resultados = buscar_paises_por_nombre(paises, nombre)
 
-                                print(f"El pais {pais['nombre']} actualizo su valor de poblacion a {pais['poblacion']}")
-                                return
-
-                        case 2:# Actualizar la superficie del pais.
-                                while True:
-                                    try: 
-                                        pais['superficie'] = int(input(f"Ingrese la nueva superficie de {pais['nombre']}: "))
-                                    
-                                        if pais['superficie'] <= 0:
-                                            raise ValueError("[ERROR] La superficie debe ser mayor que cero.")
-                                    
-                                    except ValueError as e:
-                                        print(e)
-                                        continue
-                                    
-                                    print(f"El pais {pais['nombre']} actualizo su valor de superficie a {pais['superficie']}")
-                                    return
-                                        
-                        case 3:
-                            return
-        if not pais_encontrado:# esto esta por si no se encontro el pais buscado
-            print("[ERROR] Pais no encontrado, ingrese un nombre valido.")
+        if not resultados:
+            print("[ERROR] Pais no encontrado.")
             continue
+
+        # Si hay varios resultados, se elige uno
+        if len(resultados) > 1:
+            print("\nSe encontraron varios paises:")
+            for i, pais in enumerate(resultados, 1):
+                print(f"{i}) {pais['nombre']}")
+
+            try:
+                opcion = input("Seleccione el pais a modificar: ").strip()
+
+                if not opcion.isdigit():
+                    raise ValueError("Ingrese un numero valido.")
+
+                opcion = int(opcion)
+
+                if opcion < 1 or opcion > len(resultados):
+                    raise ValueError("Opcion fuera de rango.")
+
+                pais = resultados[opcion - 1]
+
+            except ValueError as e:
+                print(e)
+                continue
+        else:
+            pais = resultados[0]
+
+        # Menu de actualización
+        while True:
+            try:
+                opcion = input("""
+                        Ingrese la opcion correspondiente:
+                        1 - Modificar poblacion
+                        2 - Modificar superficie
+                        3 - Volver al menu principal
+                        """).strip()
+
+                if not opcion.isdigit():
+                    raise ValueError("[ERROR] Ingrese solo numeros.")
+
+                opcion = int(opcion)
+
+                if opcion < 1 or opcion > 3:
+                    raise ValueError("[ERROR] Opcion fuera de rango.")
+
+            except ValueError as e:
+                print(e)
+                continue
+
+            match opcion:
+
+                case 1:
+                    while True:
+                        try:
+                            nueva = int(input(f"Ingrese la nueva poblacion de {pais['nombre']}: "))
+
+                            if nueva <= 0:
+                                raise ValueError("La población debe ser mayor que cero.")
+
+                            pais['poblacion'] = nueva
+
+                            print(f"El país {pais['nombre']} actualizo su población a {pais['poblacion']}")
+                            return
+
+                        except ValueError as e:
+                            print(e)
+
+                case 2:
+                    while True:
+                        try:
+                            nueva = int(input(f"Ingrese la nueva superficie de {pais['nombre']}: "))
+
+                            if nueva <= 0:
+                                raise ValueError("La superficie debe ser mayor que cero.")
+
+                            pais['superficie'] = nueva
+
+                            print(f"El país {pais['nombre']} actualizo su superficie a {pais['superficie']}")
+                            return
+
+                        except ValueError as e:
+                            print(e)
+
+                case 3:
+                    return
 
 
 def buscar_pais(paises):    # Opcion 3
@@ -187,12 +234,12 @@ def buscar_pais(paises):    # Opcion 3
             print(e)
             continue
 
-        sin_coincidencias = True # testigo para buscar resultados
-        for pais in paises:#buscar coincidencias por nombre
-            if nombre in pais["nombre"].lower().strip():
+        resultados = buscar_paises_por_nombre(paises, nombre)
+
+        if resultados:
+            for pais in resultados:
                 mostrar_pais(pais)
-                sin_coincidencias = False
-        if sin_coincidencias:
+        else:
             print("No se encontraron paises.")
         break
 
