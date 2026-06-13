@@ -10,6 +10,37 @@ def mostrar_pais(pais):
     """)
 
 
+def seleccionar_sentido():
+# Proposito: solicitar al usuario el sentido de ordenamiento
+    while True:
+        try:
+            opcion = input("""
+            1 - Ascendente
+            2 - Descendente
+            """).strip()
+
+            if not opcion.isdigit():
+                raise ValueError("Ingrese solo números.")
+
+            opcion = int(opcion)
+
+            if opcion not in (1, 2):
+                raise ValueError("Ingrese 1 o 2.")
+
+            return opcion == 2  # si la opcion coincide con el 2 devuelve true
+
+        except ValueError as e:
+            print(e)
+
+
+def validar_nombre(nombre):
+# proposito: esta funcion es para evitar errores con nombres con espacios como "Nueva Zelanda"
+    for caracter in nombre: 
+        if not (caracter.isalpha() or caracter == " "):
+            return False
+    return True
+
+
 def agregar_pais(paises):   # Opcion 1
 # Proposito: agregar un nuevo pais a la lista de paises.
     while True:
@@ -34,6 +65,10 @@ def agregar_pais(paises):   # Opcion 1
                 continente = input (f"Ingrese a que continente pertenece {nombre}: ")
                 while True:
                     try:
+                        if not validar_nombre(nombre):
+                            raise ValueError("Nombre de país inválido.")
+                        if not validar_nombre(continente):
+                            raise ValueError("Continente inválido.")
                         poblacion = int(input(f"Ingrese la poblacion de {nombre}: "))
                         superficie = int(input(f"Ingrese la superficie de {nombre}: "))
                         if poblacion <= 0:# Verificar que los valores sean mayores a cero
@@ -75,7 +110,7 @@ def actualizar_pais(paises):# Opcion 2
         try:
             nombre = input("Ingrese el nombre del pais para modificar su poblacion y/o superficie: ").strip().lower()
 
-            if not nombre.isalpha():
+            if not validar_nombre(nombre):
                 raise ValueError("Ingrese solo letras para el nombre del pais.")
     
         except ValueError as e:
@@ -96,7 +131,7 @@ def actualizar_pais(paises):# Opcion 2
                         if not opcion.isdigit():
                             raise ValueError("[ERROR] Ingrese solo numeros.")
 
-                        if int(opcion) > 3 or int(opcion) == 0:
+                        if int(opcion) < 1 or int(opcion) > 3:
                             raise ValueError("[ERROR] Ingrese solo los numeros 1, 2 ó 3.") 
                     except ValueError as e:
                         print(e)
@@ -144,9 +179,9 @@ def buscar_pais(paises):    # Opcion 3
 # Proposito: Buscar un pais en la base de datos y mostrar sus datos
     while True:
         try:#primero solicitar nombre
-            nombre_buscado = input("Ingrese el nombre del pais a buscar: ").strip().lower()
+            nombre = input("Ingrese el nombre del pais a buscar: ").strip().lower()
 
-            if not nombre_buscado.isalpha():
+            if not validar_nombre(nombre):
                 raise ValueError("[ERROR] Ingrese solo letras, no numeros ni caracteres invalidos.")
         except ValueError as e:
             print(e)
@@ -154,7 +189,7 @@ def buscar_pais(paises):    # Opcion 3
 
         sin_coincidencias = True # testigo para buscar resultados
         for pais in paises:#buscar coincidencias por nombre
-            if nombre_buscado in pais["nombre"].lower().strip():
+            if nombre in pais["nombre"].lower().strip():
                 mostrar_pais(pais)
                 sin_coincidencias = False
         if sin_coincidencias:
@@ -185,9 +220,9 @@ def filtrar_paises(paises): # Opcion 4
             case 1:#filtar por continente
                 while True:
                     try:
-                        continente = input("Ingrese el continente a buscar: ").strip().lower()
+                        nombre = input("Ingrese el continente a buscar: ").strip().lower()
 
-                        if not continente.isalpha():
+                        if not validar_nombre(nombre):
                             raise ValueError("[ERROR] Ingrese solo caracteres validos.")
                         
                     except ValueError as e:
@@ -196,7 +231,7 @@ def filtrar_paises(paises): # Opcion 4
                     
                     sin_coincidencias = True
                     for pais in paises:
-                        if continente in pais["continente"].strip().lower():
+                        if nombre in pais["continente"].strip().lower():
                             mostrar_pais(pais)
                             sin_coincidencias = False
                     if sin_coincidencias:
@@ -294,7 +329,8 @@ def ordenar_paises(paises): # Opcion 5
             case 3:
                 ordenados = sorted(
                     paises,
-                    key=lambda pais: int(pais["superficie"])
+                    key=lambda pais: int(pais["superficie"]),
+                    reverse= seleccionar_sentido()#para cambiar el sentido
                 )
                 print("\nPrimeros 10 paises ordenados por superficie:\n")
                 for pais in ordenados[:10]:
@@ -305,6 +341,9 @@ def ordenar_paises(paises): # Opcion 5
 
 def estadisticas(paises):   # Opcion 6
 # Propposito: muestra estadisticas generales de los paises
+    if not paises:
+        print("No hay países cargados.")
+        return
     # Inicializar minimos y maximos con el primer pais
     minimo = maximo = int(paises[0]["poblacion"])
     pais_min = pais_max = paises[0]["nombre"]
@@ -371,17 +410,20 @@ def menu():# Menu y gestion
             lector = csv.DictReader(archivo)
 
             # Verificar si el archivo esta vacio
-            if lector.fieldnames is None:
-                print("[ERROR] No hay datos cargados.")
+            required = {"nombre", "poblacion", "superficie", "continente"}
+            if not lector.fieldnames or not required.issubset(lector.fieldnames):
+                print("[ERROR] Archivo vacio o sin datos validos.")
                 print("Se recomienda usar la opcion 1 del menu para agregar paises manualmente.")
-                return paises
-
-            for fila in lector:#esta parte recorre las filas de datos numericos y los pasa a enteros
-                if not fila:  
-                    continue
-                fila["poblacion"] = int(fila["poblacion"])
-                fila["superficie"] = int(fila["superficie"])
-                paises.append(fila)
+            else:
+                for fila in lector:#esta parte recorre las filas de datos numericos y los pasa a enteros
+                    try:
+                        if not fila:  
+                            continue
+                        fila["poblacion"] = int(fila["poblacion"])
+                        fila["superficie"] = int(fila["superficie"])
+                        paises.append(fila)
+                    except (ValueError, KeyError):
+                        print(f"[ERROR] Registro inválido ignorado: {fila}")
     # Si el archivo no existe, iniciar el programa con una lista vacia
     except FileNotFoundError:
                     print("No existe el archivo, se inicia vacío.")
@@ -432,7 +474,6 @@ def menu():# Menu y gestion
 
                 if confirmar == "si":
                     guardar_cambios(paises)
-                    print("Cambios guardados correctamente.")
 
                 print("Saliendo del programa...")
                 break
