@@ -1,33 +1,3 @@
-# buscador_de_paises
-Sistema para buscar paises segun distintos criterios
-INICIO
-
-↓
-cargar_csv()
-
-↓
-menu()
-
-↓
-opción
-
-├─ agregar
-├─ actualizar
-├─ buscar
-├─ filtrar
-├─ ordenar
-├─ estadísticas
-└─ guardar
-
-↓
-salir
-
-↓
-guardar_csv()
-
-↓
-FIN
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Buscador de Paises
 
 Trabajo Práctico Integrador (TPI) - Programación I
@@ -55,18 +25,23 @@ El sistema permite realizar consultas, búsquedas, filtros, ordenamientos y esta
 
 ---
 
-## Estructura del Proyecto
-
-buscador_de_paises/
-│
-├── data/
-│   └── paises.csv
-│
-├── modulos/
-│   └── funciones.py
-│
-├── main.py
-└── README.md
+## Flujo del programa
+INICIO
+↓
+Carga de datos desde CSV (si existe)
+↓
+menu()
+↓
+Seleccion de opcion:
+   ├─ Agregar país
+   ├─ Actualizar país
+   ├─ Buscar país (parcial)
+   ├─ Filtrar países
+   ├─ Ordenar países
+   ├─ Estadísticas
+   └─ Guardar cambios
+↓
+FIN
                     
 
 ---
