@@ -2,9 +2,10 @@
 
 Trabajo Práctico Integrador (TPI) - Programación I
 
-Alumnos 
-Juan Ignacion Rodriguez (comision 14)
-Guido Ignacio Toledo Gonzalez (comision 25)
+## Alumnos
+
+- Juan Ignacio Rodriguez (Comisión 14)
+- Guido Ignacio Toledo Gonzalez (Comisión 25)
 
 
 ## Descripción
