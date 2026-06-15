@@ -1,7 +1,7 @@
 import csv
 
 def mostrar_pais(pais):
-# Proposito: mostrar los datos de un pais y reutilizar el formato de impresion.
+    """Muestra los datos de un pais y reutiliza el formato de impresion"""
     print(f"""
         Nombre: {pais["nombre"]}
         Poblacion: {pais["poblacion"]}
@@ -11,7 +11,7 @@ def mostrar_pais(pais):
 
 
 def seleccionar_sentido():
-# Proposito: solicitar al usuario el sentido de ordenamiento
+    """Solicita al usuario sentido de ordenamiento"""
     while True:
         try:
             opcion = input("""
@@ -34,15 +34,31 @@ def seleccionar_sentido():
 
 
 def validar_nombre(nombre):
-# proposito: esta funcion es para evitar errores con nombres con espacios como "Nueva Zelanda"
-    for caracter in nombre: 
-        if not (caracter.isalpha() or caracter == " "):
-            return False
-    return True
+    """Permite espacios pero no caracteres invalidos"""
+    #Transforma inputs como "america del norte" a "americadelnorte"
+    nombre = nombre.strip()
+
+    if nombre == "":
+        return False
+
+    return nombre.replace(" ", "").isalpha()
+
+def validar_continente(continente):
+    """Valida que el continente ingresado sea valido"""
+    continentes_validos = {
+        "asia",
+        "africa",
+        "america del norte",
+        "america del sur",
+        "europa",
+        "oceania"
+    }
+
+    return continente.strip().lower() in continentes_validos
 
 
 def buscar_paises_por_nombre(paises, nombre_buscado):
-# proposito: funcion para busquedas parciales
+    """Funcion para busquedas parciales"""
     resultados = []
 
     nombre_buscado = nombre_buscado.lower().strip()
@@ -55,7 +71,7 @@ def buscar_paises_por_nombre(paises, nombre_buscado):
 
 
 def agregar_pais(paises):   # Opcion 1
-# Proposito: agregar un nuevo pais a la lista de paises.
+    """Agrega un pais a la lista de paises"""
     while True:
         try:
             opcion = input("""Ingrese la opcion correspondiente:
@@ -74,25 +90,50 @@ def agregar_pais(paises):   # Opcion 1
 
         match int(opcion):
             case 1: # primero solicito y valido los datos del nuevo pais
-                nombre = input ("Ingrese el nombre del pais: ")
-                continente = input (f"Ingrese a que continente pertenece {nombre}: ")
+                
                 while True:
                     try:
+                        nombre = input ("Ingrese el nombre del pais: ")
+                        continente = input (f"Ingrese a que continente pertenece {nombre}: ")
+                        
                         if not validar_nombre(nombre):
                             raise ValueError("Nombre de país inválido.")
-                        if not validar_nombre(continente):
-                            raise ValueError("Continente inválido.")
-                        poblacion = int(input(f"Ingrese la poblacion de {nombre}: "))
-                        superficie = int(input(f"Ingrese la superficie de {nombre}: "))
-                        if poblacion <= 0:# Verificar que los valores sean mayores a cero
+                        
+                        if not validar_continente(continente):
+                            raise ValueError(
+                                "[ERROR] Ingrese solo estos continentes: asia, africa, america del norte, america del sur, europa u oceania."
+                            )
+                        
+                        #if not validar_nombre(continente):
+                        #    raise ValueError("Continente inválido.")
+                        poblacion = input(f"Ingrese la poblacion de {nombre}: ")
+                        superficie = input(f"Ingrese la superficie de {nombre} en kilometros cuadrados: ")
+
+                        if not superficie.isdigit():
+                            raise ValueError("[ERROR] Ingrese solo numeros para la superficie")
+                        
+                        if not poblacion.isdigit():
+                            raise ValueError("[ERROR] Ingrese solo numeros para la poblacion")
+                        
+                        if int(poblacion) <= 0:# Verificar que los valores sean mayores a cero
                             raise ValueError("La poblacion debe ser mayor a 0.")
-                        if superficie  <=0:
+                        
+                        if int(superficie)  <=0:
                             raise ValueError("La superficie debe ser mayor a 0.")
+                        
+                        #Normaliza datos a ser cargados en el CSV.
+                        poblacion = int(poblacion)
+                        superficie = int(superficie)
+                        continente = continente.strip().lower()
+                        nombre = nombre.strip()
+
                         break
                     except ValueError as e:
                         print(e)
+                        continue
                 pais_agregado = (f"{nombre},{poblacion},{superficie},{continente}")
                 print(pais_agregado)# Mostrar una vista previa de los datos ingresados
+                
                 while True:
                     try:
                         confirmar = input("Guardar los cambios? si/no: ").lower().strip()
@@ -110,7 +151,7 @@ def agregar_pais(paises):   # Opcion 1
                     "superficie": superficie,
                     "continente": continente
                 }
-                if confirmar == "si":# solo se agrega el pais a la lista si fue confirmado
+                if confirmar == "si":# Solo se agrega el pais a la lista si fue confirmado
                     paises.append(nuevo_pais)
                     
             case 2:
@@ -118,8 +159,7 @@ def agregar_pais(paises):   # Opcion 1
 
 
 def actualizar_pais(paises):# Opcion 2
-# Propocito: busca un pais por su nombre para actualizar poblacion o superficie
-
+    """Actualiza la poblacion o superficie de un pais"""
     while True:
         try:
             nombre = input("Ingrese el nombre del pais a buscar: ").strip().lower()
@@ -189,11 +229,19 @@ def actualizar_pais(paises):# Opcion 2
                 case 1:
                     while True:
                         try:
-                            nueva = int(input(f"Ingrese la nueva poblacion de {pais['nombre']}: "))
+                            nueva = input(f"Ingrese la nueva poblacion de {pais['nombre']}: ").strip()
 
-                            if nueva <= 0:
-                                raise ValueError("La población debe ser mayor que cero.")
-
+                            if nueva.strip() == "":
+                                raise ValueError("[ERROR] No se detectaron caracteres")
+                            
+                            if not nueva.isdigit():
+                                raise ValueError("[ERROR]Ingrese solo numeros enteros positivos")
+                            
+                            if int(nueva) <= 0:
+                                raise ValueError("[ERROR]La población debe ser mayor que cero.")
+                            
+                            nueva = int(nueva)
+                        
                             pais['poblacion'] = nueva
 
                             print(f"El país {pais['nombre']} actualizo su población a {pais['poblacion']}")
@@ -201,31 +249,41 @@ def actualizar_pais(paises):# Opcion 2
 
                         except ValueError as e:
                             print(e)
+                            continue
 
                 case 2:
                     while True:
                         try:
-                            nueva = int(input(f"Ingrese la nueva superficie de {pais['nombre']}: "))
+                            nueva = input(f"Ingrese la nueva superficie de {pais['nombre']} en kilometros cuadrados: ").strip()
 
-                            if nueva <= 0:
-                                raise ValueError("La superficie debe ser mayor que cero.")
+                            if nueva.strip() == "":
+                                raise ValueError("[ERROR] No se detectaron caracteres")
+                            
+                            if not nueva.isdigit():
+                                raise ValueError("[ERROR] Ingrese solo numeros enteros")
 
+                            if int(nueva) <= 0:
+                                raise ValueError("[ERROR]La superficie debe ser mayor que cero.")
+                            
+                            nueva = int(nueva)
+                            
                             pais['superficie'] = nueva
 
-                            print(f"El país {pais['nombre']} actualizo su superficie a {pais['superficie']}")
+                            print(f"El país {pais['nombre']} actualizo su superficie a {pais['superficie']} kilometros cuadrados")
                             return
 
                         except ValueError as e:
                             print(e)
+                            continue
 
                 case 3:
                     return
 
 
 def buscar_pais(paises):    # Opcion 3
-# Proposito: Buscar un pais en la base de datos y mostrar sus datos
+    """Busca un pais y muestra sus datos"""
     while True:
-        try:#primero solicitar nombre
+        try:#Solicita nombre
             nombre = input("Ingrese el nombre del pais a buscar: ").strip().lower()
 
             if not validar_nombre(nombre):
@@ -245,7 +303,7 @@ def buscar_pais(paises):    # Opcion 3
 
 
 def filtrar_paises(paises): # Opcion 4
-# Propocito: sirve para mostrar paises segun criterio de busqueda
+    """Mostrar paises segun criterios de busqueda"""
     while True:
         try:
             opcion = input("""Ingrese la opcion correspondiente: 
@@ -264,13 +322,16 @@ def filtrar_paises(paises): # Opcion 4
             continue
 
         match int(opcion):
-            case 1:#filtar por continente
+            case 1:#filtrar por continente
                 while True:
                     try:
                         nombre = input("Ingrese el continente a buscar: ").strip().lower()
 
                         if not validar_nombre(nombre):
-                            raise ValueError("[ERROR] Ingrese solo caracteres validos.")
+                            raise ValueError("[ERROR] Ingrese solo letras y espacios")
+                        
+                        if not validar_continente(nombre):
+                            raise ValueError("[ERROR] Continente inválido.")
                         
                     except ValueError as e:
                         print(e)
@@ -291,7 +352,7 @@ def filtrar_paises(paises): # Opcion 4
                         maximo = input("Maximo: ")
 
                         if not minimo.isdigit() or not maximo.isdigit():
-                            raise ValueError("Ingrese solo numeros enteros.")
+                            raise ValueError("Ingrese solo numeros enteros positivos.")
                         if int(minimo) > int(maximo):
                             raise ValueError("El minimo no puede ser mayor al maximo.")
 
@@ -314,7 +375,7 @@ def filtrar_paises(paises): # Opcion 4
                         maximo = input("Maximo: ")
 
                         if not minimo.isdigit() or not maximo.isdigit():
-                            raise ValueError("[ERROR] Ingrese solo numeros.")
+                            raise ValueError("[ERROR] Ingrese solo numeros positivos.")
                         if int(minimo) > int(maximo):
                             raise ValueError("El minimo no puede ser mayor al maximo.")
                     
@@ -336,7 +397,7 @@ def filtrar_paises(paises): # Opcion 4
 
 
 def ordenar_paises(paises): # Opcion 5 
-# Proposito: Ordena todos los paises por nombre, poblacion o superficie
+    """Ordena los paises por nombre, poblacion ó superficie"""
     while True:
         try:# menu de criterio de orden
             opcion = input("""Ingrese la opcion correspondiente: 
@@ -362,16 +423,16 @@ def ordenar_paises(paises): # Opcion 5
                     paises,
                     key=lambda pais: pais["nombre"]
                 )
-                print("\nPrimeros 10 paises ordenados por nombre:\n")
-                for pais in ordenados[:10]:
+                print("\nPaises ordenados por nombre:\n")
+                for pais in ordenados[:]:
                     mostrar_pais(pais)
             case 2:# ordenar poblacion de menor a mayor
                 ordenados = sorted(
                     paises,
                     key=lambda pais: int(pais["poblacion"])
                 )
-                print("\nPrimeros 10 paises ordenados por población:\n")
-                for pais in ordenados[:10]:
+                print("\nPaises ordenados por poblacion:\n")
+                for pais in ordenados[:]:
                     mostrar_pais(pais)
             case 3:
                 ordenados = sorted(
@@ -379,15 +440,15 @@ def ordenar_paises(paises): # Opcion 5
                     key=lambda pais: int(pais["superficie"]),
                     reverse= seleccionar_sentido()#para cambiar el sentido
                 )
-                print("\nPrimeros 10 paises ordenados por superficie:\n")
-                for pais in ordenados[:10]:
+                print("\nPaises ordenados por superficie:\n")
+                for pais in ordenados[:]:
                     mostrar_pais(pais)
             case 4:
                 break
 
 
 def estadisticas(paises):   # Opcion 6
-# Propposito: muestra estadisticas generales de los paises
+    """Muestra estadisticas generales de los paises"""
     if not paises:
         print("No hay países cargados.")
         return
@@ -436,7 +497,7 @@ def estadisticas(paises):   # Opcion 6
 
 
 def guardar_cambios(paises):# Opcion 7
-# Proposito: Guardar los cambios realizados en el archivo CSV
+    """Guarda cambios en el CSV"""
     with open("paises.csv", "w", encoding="utf-8") as archivo:
 
         archivo.write("nombre,poblacion,superficie,continente\n")
@@ -448,7 +509,7 @@ def guardar_cambios(paises):# Opcion 7
 
 
 def menu():# Menu y gestion
-# Propocito: muestra el menu y gestiona el flujo principal del programa
+    """Muestra el menu de opciones y carga datos del archivo CSV"""
     paises = []
     # este bloque esta para recuperar los datos guardados previamente desde el archivo CSV
     # y manejar situaciones donde el archivo no existe o no contiene datos validos
@@ -477,6 +538,9 @@ def menu():# Menu y gestion
 
     while True:
         print("""
+===========================================================================================================
+Ingrese el numero correspondiente a una de las siguientes opciones:
+-----------------------------------------------------------------------------------------------------------
 1. Agregar pais
 2. Actualizar pais
 3. Buscar pais
@@ -484,6 +548,7 @@ def menu():# Menu y gestion
 5. Ordenar paises
 6. Estadisticas
 7. Guardar cambios y salir
+==========================================================================================================
 """)
         try:
             opcion = input("Ingrese una opcion: ").strip()
