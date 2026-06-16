@@ -131,10 +131,10 @@ python buscador_de_paises.py
 
 Link al video:
 
-[PEGAR ENLACE]
+[Ver video demostrativo](https://youtu.be/WPZg3006-_E)
 
 ## Documentación
 
 Informe PDF:
 
-[PEGAR ENLACE]
+[Ver documentación](https://docs.google.com/document/d/139CO3CLXvlFh4Stc_KED8yQuR0y59alSdRIxzg9xYok/edit?usp=sharing)
